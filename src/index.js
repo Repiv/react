@@ -14,7 +14,7 @@ class MovieSearch extends React.Component {
     };
 
     onUserInput = (e) => {
-        let value = e.target.value.replace(/[^a-zA-Z\s]+/g, '');
+        let value = e.target.value.replace(/[^a-zA-Z]+/g, '');
         this.onRequest(value);
     };
 
