@@ -7,7 +7,8 @@ import Loading from './Loading';
 class MovieSearch extends React.Component {
     state = {
         movie: [],
-        state: false
+        state: false,
+        input: ''
     };
 
     componentWillMount() {
@@ -16,6 +17,8 @@ class MovieSearch extends React.Component {
 
     onUserInput = (e) => {
         let value = e.target.value.replace(/[^a-zA-Z]+/g, '');
+        this.setState({input: value});
+
         this.onRequest(value);
     };
 
@@ -35,6 +38,7 @@ class MovieSearch extends React.Component {
                 <DebounceInput
                     minLength={1}
                     debounceTimeout={150}
+                    value={this.state.input}
                     onChange={this.onUserInput} />
             </div>
         )
