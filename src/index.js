@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {DebounceInput} from 'react-debounce-input';
 import Movie from './Movie';
 import Loading from './Loading';
 
@@ -31,7 +32,10 @@ class MovieSearch extends React.Component {
                 { this.state.state ? <Loading /> : null }
                 <h1>Movies</h1>
                 <Movie {...this.state.movie}/>
-                <input type="text" onChange={this.onUserInput}/>
+                <DebounceInput
+                    minLength={1}
+                    debounceTimeout={150}
+                    onChange={this.onUserInput} />
             </div>
         )
     };
